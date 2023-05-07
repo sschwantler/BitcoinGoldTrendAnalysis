@@ -3,6 +3,14 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import requests
+import os
+
+OUTPUT_FOLDER = "data_output"
+
+if not os.path.exists(OUTPUT_FOLDER):
+    # if the demo_folder directory is not present
+    # then create it.
+    os.makedirs(OUTPUT_FOLDER)
 
 # Getting the Data from APIs
 gold_url = "https://datahub.io/core/gold-prices/r/monthly.csv"
@@ -56,14 +64,14 @@ df_percent.dropna(inplace=True)
 plt.figure()
 plt.title('Gold, Bitcoin and Dow Jones Prices')
 sns.lineplot(data=df_abs)
-plt.savefig('gold_bitcoin_dow_raw.png')
+plt.savefig(f'{OUTPUT_FOLDER}/gold_bitcoin_dow_raw.png')
 plt.show()
 
 plt.figure()
 plt.title('Relative Development of Gold, Bitcoin and Dow Jones Prices')
 sns.lineplot(data=df_percent)
 plt.ylabel('Relative Percent Change')
-plt.savefig('gold_bitcoin_dow_rel_dev.png')
+plt.savefig(f'{OUTPUT_FOLDER}/gold_bitcoin_dow_rel_dev.png')
 plt.show()
 
 fig = plt.figure(constrained_layout=True)
@@ -77,9 +85,9 @@ ax1.set_xlabel("Date")
 ax1.set_ylabel("Price (US Dollar)")
 ax2.set_ylabel("Dow Jones")
 plt.title("Development of Gold and Bitcoin Price compared to Dow Jones Growth")
-plt.savefig('gold_bitcoin_dow_dev.png', bbox_inches="tight")
+plt.savefig(f'{OUTPUT_FOLDER}/gold_bitcoin_dow_dev.png', bbox_inches="tight")
 plt.show()
 
 # Machine-Actionable Data
-df_abs.to_csv('gold_bitcoin_dow.csv')
+df_abs.to_csv(f'{OUTPUT_FOLDER}/gold_bitcoin_dow.csv')
 
