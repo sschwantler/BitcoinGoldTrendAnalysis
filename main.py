@@ -1,4 +1,5 @@
 # Required Libraries
+import datetime
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -13,12 +14,14 @@ if not os.path.exists(OUTPUT_FOLDER):
     os.makedirs(OUTPUT_FOLDER)
 
 # Getting the Data from APIs
-gold_url = "data_backup\\gold_daily.csv"  # https://www.nasdaq.com/market-activity/commodities/gc:cmx/historical
+gold_url = "data_backup\\goldPrices_v1_20230510.csv"  # https://www.nasdaq.com/market-activity/commodities/gc:cmx/historical
 bitcoin_url = "https://api.coindesk.com/v1/bpi/historical/close.json?start=2010-07-17&end=2023-05-07"
 dow_url = "https://query1.finance.yahoo.com/v7/finance/download/%5EDJI?period1=1271433600&period2=1651900800&interval=1d&events=history&includeAdjustedClose=true"
 
 headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'}
+
+date_marker = datetime.date.today().strftime("%Y%m%d")
 
 # Gold Data from Quandl
 gold_df = pd.read_csv(gold_url, parse_dates=['Date'], index_col='Date')
@@ -66,14 +69,14 @@ df_percent.dropna(inplace=True)
 plt.figure()
 plt.title('Gold, Bitcoin and Dow Jones Prices')
 sns.lineplot(data=df_abs)
-plt.savefig(f'{OUTPUT_FOLDER}/gold_bitcoin_dow_raw.png')
+plt.savefig(f'{OUTPUT_FOLDER}/gold_bitcoin_dow_raw_{date_marker}.png')
 plt.show()
 
 plt.figure()
 plt.title('Relative Development of Gold, Bitcoin and Dow Jones Prices')
 sns.lineplot(data=df_percent)
 plt.ylabel('Relative Percent Change')
-plt.savefig(f'{OUTPUT_FOLDER}/gold_bitcoin_dow_rel_dev.png')
+plt.savefig(f'{OUTPUT_FOLDER}/gold_bitcoin_dow_rel_dev_{date_marker}.png')
 plt.show()
 
 fig = plt.figure(constrained_layout=True)
@@ -87,9 +90,9 @@ ax1.set_xlabel("Date")
 ax1.set_ylabel("Price (US Dollar)")
 ax2.set_ylabel("Dow Jones")
 plt.title("Development of Gold and Bitcoin Price compared to Dow Jones Growth")
-plt.savefig(f'{OUTPUT_FOLDER}/gold_bitcoin_dow_dev.png', bbox_inches="tight")
+plt.savefig(f'{OUTPUT_FOLDER}/gold_bitcoin_dow_dev_{date_marker}.png', bbox_inches="tight")
 plt.show()
 
 # Machine-Actionable Data
-df_abs.to_csv(f'{OUTPUT_FOLDER}/gold_bitcoin_dow.csv')
+df_abs.to_csv(f'{OUTPUT_FOLDER}/aggregated_gold_bitcoin_dowJones_{date_marker}.csv')
 
