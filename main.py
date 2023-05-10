@@ -13,7 +13,7 @@ if not os.path.exists(OUTPUT_FOLDER):
     os.makedirs(OUTPUT_FOLDER)
 
 # Getting the Data from APIs
-gold_url = "https://datahub.io/core/gold-prices/r/monthly.csv"
+gold_url = "data_backup\\gold_daily.csv"  # https://www.nasdaq.com/market-activity/commodities/gc:cmx/historical
 bitcoin_url = "https://api.coindesk.com/v1/bpi/historical/close.json?start=2010-07-17&end=2023-05-07"
 dow_url = "https://query1.finance.yahoo.com/v7/finance/download/%5EDJI?period1=1271433600&period2=1651900800&interval=1d&events=history&includeAdjustedClose=true"
 
@@ -22,9 +22,11 @@ headers = {
 
 # Gold Data from Quandl
 gold_df = pd.read_csv(gold_url, parse_dates=['Date'], index_col='Date')
-gold_df = gold_df.rename(columns={"Price": "Gold_Price"})
+gold_df = gold_df.rename(columns={"Close/Last": "Gold_Price"})
+gold_df.drop(['Volume', 'High', 'Low', 'Volume'], axis=1, inplace=True)
+gold_df = gold_df.resample('MS').mean()
 gold_df["Gold_Change"] = gold_df["Gold_Price"].pct_change()
-gold_df = gold_df.loc['2014-01-01':'2020-01-01']
+gold_df = gold_df.loc['2014-01-01':'2022-01-01']
 
 
 # Bitcoin Data from CoinDesk
@@ -35,7 +37,7 @@ bitcoin_df = pd.DataFrame.from_dict(bitcoin_data, orient='index', columns=['Bitc
 bitcoin_df.index = pd.to_datetime(bitcoin_df.index)
 bitcoin_df = bitcoin_df.resample('MS').mean()
 bitcoin_df["Bitcoin_Change"] = bitcoin_df["Bitcoin_Price"].pct_change()
-bitcoin_df = bitcoin_df.loc['2014-01-01':'2020-01-01']
+bitcoin_df = bitcoin_df.loc['2014-01-01':'2022-01-01']
 
 
 # Dow Jones Data from Yahoo Finance
@@ -46,7 +48,7 @@ dow_df.drop(['Open', 'High', 'Low', 'Close', 'Volume'], axis=1, inplace=True)
 dow_df.columns = ['Dow_Jones']
 dow_df = dow_df.resample('MS').mean()
 dow_df["Dow_Jones_Change"] = dow_df["Dow_Jones"].pct_change()
-dow_df = dow_df.loc['2014-01-01':'2020-01-01']
+dow_df = dow_df.loc['2014-01-01':'2022-01-01']
 
 
 # Joining all Datasets
