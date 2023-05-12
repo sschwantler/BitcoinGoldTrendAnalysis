@@ -21,6 +21,7 @@ File naming for reused data:
   * Columns are renamed
   * Each dataframe requires a index as a date
   * The relative change in percent for each row is calculated
+  * The timeframe considered is 2014-01-01 to 2022-01-01
 * These dataframes are aggregated, plotted and stored in the csv file
 * 
 The generated file contains the following structure:
