@@ -33,6 +33,10 @@ The generated file contains the following structure:
 
 All prices are in US Dollar.
 
+## Produced Data
+
+[![DOI](https://test.researchdata.tuwien.ac.at/badge/DOI/10.70124/c70yb-q6d73.svg)](https://doi.org/10.70124/c70yb-q6d73)
+
 The file name will be `aggregated_gold_bitcoin_dowJones_<date YYYYMMDD>.csv`
 
 
