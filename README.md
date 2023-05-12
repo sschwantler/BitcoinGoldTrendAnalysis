@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/637382943.svg)](https://zenodo.org/badge/latestdoi/637382943)
+
 # Trend Analysis of Bitcoin and Classical Asset Prices: A Comparative Study
 
 This project focuses on the analysis and comparison of trends in three major asset prices, namely gold, bitcoin, and the Dow Jones Index[1][2][3]. The study aims to provide valuable insights into the behavior of these different asset classes and their interrelationships within the financial markets.
