@@ -1,4 +1,4 @@
-# DS_EX1_SS23
+# Trend Analysis of Bitcoin and Classical Asset Prices: A Comparative Study
 
 ## Reused data
 File naming for reused data:
