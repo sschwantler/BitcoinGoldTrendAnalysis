@@ -10,6 +10,11 @@ By analyzing the trends of these asset prices, we can gain a deeper understandin
 
 Overall, this project represents a valuable contribution to the field of financial analysis and provides a framework for further exploration of the interrelationships between different asset classes.
 
+[1] https://www.nasdaq.com/market-activity/commodities/gc:cmx/historical
+
+[2] https://api.coindesk.com/v1/bpi/historical/close.json?start=2010-07-17&end=2023-05-07
+
+[3] https://query1.finance.yahoo.com/v7/finance/download/%5EDJI?period1=1271433600&period2=1651900800&interval=1d&events=history&includeAdjustedClose=true
 
 ## Reused data
 File naming for reused data:
@@ -40,11 +45,4 @@ All prices are in US Dollar.
 [Link to dataset at test.researchdata.tuwien.ac.at](https://test.researchdata.tuwien.ac.at/records/c70yb-q6d73?token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6ImFmNzY5NGVmLTU0MWItNDE0Zi04ODAwLTFjNjFlNGQzNWY3OSIsImRhdGEiOnt9LCJyYW5kb20iOiIyYTM0MDE0ZmJjNTQyODVhZGY5YmY2OTk2NTA2NDk4YyJ9.j-bWYFdELo2y3RrC0R9e1_jnlbSryIeHValmldXz9pEDm9VzwSFqP47DjTcKNa4dfZQku6pyQ1mZQV-8iGV2Ow)
 
 The file name will be `aggregated_gold_bitcoin_dowJones_<date YYYYMMDD>.csv`
-
-
-[1] https://www.nasdaq.com/market-activity/commodities/gc:cmx/historical
-
-[2] https://api.coindesk.com/v1/bpi/historical/close.json?start=2010-07-17&end=2023-05-07
-
-[3] https://query1.finance.yahoo.com/v7/finance/download/%5EDJI?period1=1271433600&period2=1651900800&interval=1d&events=history&includeAdjustedClose=true
 
