@@ -37,6 +37,8 @@ All prices are in US Dollar.
 
 [![DOI](https://test.researchdata.tuwien.ac.at/badge/DOI/10.70124/c70yb-q6d73.svg)](https://doi.org/10.70124/c70yb-q6d73)
 
+[Link to dataset at test.researchdata.tuwien.ac.at](https://test.researchdata.tuwien.ac.at/records/c70yb-q6d73?token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6ImFmNzY5NGVmLTU0MWItNDE0Zi04ODAwLTFjNjFlNGQzNWY3OSIsImRhdGEiOnt9LCJyYW5kb20iOiIyYTM0MDE0ZmJjNTQyODVhZGY5YmY2OTk2NTA2NDk4YyJ9.j-bWYFdELo2y3RrC0R9e1_jnlbSryIeHValmldXz9pEDm9VzwSFqP47DjTcKNa4dfZQku6pyQ1mZQV-8iGV2Ow)
+
 The file name will be `aggregated_gold_bitcoin_dowJones_<date YYYYMMDD>.csv`
 
 
