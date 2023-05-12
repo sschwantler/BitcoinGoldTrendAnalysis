@@ -1,6 +1,6 @@
 # Trend Analysis of Bitcoin and Classical Asset Prices: A Comparative Study
 
-This project focuses on the analysis and comparison of trends in three major asset prices, namely gold, bitcoin, and the Dow Jones Index. The study aims to provide valuable insights into the behavior of these different asset classes and their interrelationships within the financial markets.
+This project focuses on the analysis and comparison of trends in three major asset prices, namely gold, bitcoin, and the Dow Jones Index[1][2][3]. The study aims to provide valuable insights into the behavior of these different asset classes and their interrelationships within the financial markets.
 
 The project sources data from three distinct sources and employs various data manipulation techniques to process and aggregate the data. This data is then visualized using plots to facilitate the comparison of trends over time. The aggregated data is ultimately exported as a CSV file, which can be used for further analysis or integration into other tools or systems.
 
@@ -32,4 +32,10 @@ All prices are in US Dollar.
 
 The file name will be `aggregated_gold_bitcoin_dowJones_<date YYYYMMDD>.csv`
 
+
+[1] https://www.nasdaq.com/market-activity/commodities/gc:cmx/historical
+
+[2] https://api.coindesk.com/v1/bpi/historical/close.json?start=2010-07-17&end=2023-05-07
+
+[3] https://query1.finance.yahoo.com/v7/finance/download/%5EDJI?period1=1271433600&period2=1651900800&interval=1d&events=history&includeAdjustedClose=true
 
